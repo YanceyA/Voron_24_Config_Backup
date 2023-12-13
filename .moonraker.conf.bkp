@@ -13,6 +13,7 @@ cors_domains =
 	http://my.mainsail.xyz
 	http://*.local
 	http://*.lan
+	https://tools.annex.engineering
 	http://tools.annex.engineering
 trusted_clients = 
 	10.0.0.0/8
@@ -106,4 +107,13 @@ type = web
 channel = stable
 repo = fluidd-core/fluidd
 path = ~/fluidd
+
+[update_manager Klippain-ShakeTune]
+type = git_repo
+path = ~/klippain_shaketune
+channel = beta
+origin = https://github.com/Frix-x/klippain-shaketune.git
+primary_branch = main
+managed_services = klipper
+install_script = install.sh
 
