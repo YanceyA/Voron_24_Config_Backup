@@ -51,6 +51,10 @@ path = ~/mainsail-config
 origin = https://github.com/mainsail-crew/mainsail-config.git
 managed_services = klipper
 
+[spoolman]
+server = http://192.168.50.50:7912/
+sync_rate = 5
+
 [update_manager crowsnest]
 type = git_repo
 path = ~/crowsnest
