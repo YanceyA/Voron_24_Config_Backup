@@ -15,6 +15,7 @@ cors_domains =
 	http://*.lan
 	https://tools.annex.engineering
 	http://tools.annex.engineering
+	*://app.fluidd.xyz
 trusted_clients = 
 	10.0.0.0/8
 	100.83.130.56
