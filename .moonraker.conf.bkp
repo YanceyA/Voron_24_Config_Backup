@@ -35,6 +35,7 @@ trusted_clients =
 [announcements]
 subscriptions = 
 	mainsail
+	fluidd
 
 [update_manager]
 refresh_interval = 168
@@ -124,4 +125,16 @@ virtualenv = ~/.KlipperScreen-env
 requirements = scripts/KlipperScreen-requirements.txt
 system_dependencies = scripts/system-dependencies.json
 managed_services = KlipperScreen
+
+[update_manager Spoolman]
+type = zip
+channel = stable
+repo = Donkie/Spoolman
+path = ~/Spoolman
+virtualenv = .venv
+requirements = requirements.txt
+persistent_files = 
+	.venv
+	.env
+managed_services = Spoolman
 
