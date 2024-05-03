@@ -1,0 +1,121 @@
+[server]
+host = 0.0.0.0
+port = 7125
+max_upload_size = 1024
+klippy_uds_address = ~/printer_data/comms/klippy.sock
+
+[file_manager]
+enable_object_processing = True
+
+[authorization]
+cors_domains = 
+	http://*.local
+	http://*.lan
+	https://tools.annex.engineering
+	http://tools.annex.engineering
+	*://app.fluidd.xyz
+trusted_clients = 
+	10.0.0.0/8
+	100.83.130.56
+	100.86.124.17
+	100.102.19.48
+	100.92.169.64
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+	127.0.0.1
+force_logins = false
+
+[octoprint_compat]
+
+[history]
+
+[announcements]
+subscriptions = 
+	fluidd
+
+[update_manager]
+refresh_interval = 168
+enable_auto_refresh = True
+
+[spoolman]
+server = http://192.168.50.50:7912/
+sync_rate = 5
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/install.sh
+
+[update_manager beacon]
+type = git_repo
+channel = dev
+path = ~/beacon_klipper
+origin = https://github.com/beacon3d/beacon_klipper.git
+env = ~/klippy-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+is_system_service = False
+managed_services = klipper
+info_tags = 
+	desc=Beacon Surface Scanner
+
+[update_manager klipper_tmc_autotune]
+type = git_repo
+channel = dev
+path = ~/klipper_tmc_autotune
+origin = https://github.com/andrewmcgr/klipper_tmc_autotune.git
+managed_services = klipper
+primary_branch = main
+install_script = install.sh
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager Klippain-ShakeTune]
+type = git_repo
+path = ~/klippain_shaketune
+channel = beta
+origin = https://github.com/Frix-x/klippain-shaketune.git
+primary_branch = main
+managed_services = klipper
+install_script = install.sh
+
+[update_manager KlipperScreen]
+type = git_repo
+path = ~/KlipperScreen
+origin = https://github.com/KlipperScreen/KlipperScreen.git
+virtualenv = ~/.KlipperScreen-env
+requirements = scripts/KlipperScreen-requirements.txt
+system_dependencies = scripts/system-dependencies.json
+managed_services = KlipperScreen
+
+[update_manager Spoolman]
+type = zip
+channel = stable
+repo = Donkie/Spoolman
+path = ~/Spoolman
+virtualenv = .venv
+requirements = requirements.txt
+persistent_files = 
+	.venv
+	.env
+managed_services = Spoolman
+
+[update_manager MotionMinder]
+type = git_repo
+path = ~/motion_minder
+channel = dev
+origin = https://github.com/rodrigo2019/motion_minder.git
+primary_branch = main
+install_script = install.sh
+managed_services = klipper
+
