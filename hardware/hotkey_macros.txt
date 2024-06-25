@@ -11,23 +11,11 @@
 #Clean nozzle
 
 
-[mcu hotkey]
-#serial: /dev/serial/by-id/usb-Klipper_rp2040_E66058919F365C30-if00 
-serial: /dev/serial/by-id/usb-Klipper_rp2040_E66118F5D71A9F36-if00
-restart_method: command
-
-[idle_timeout]
-gcode:
-  status_standby_hotkey
-timeout: 1800
-
 [gcode_macro _BUTTON_B1]
 # EMERGENCY STOP
-# Home Z
 gcode:
   _status_button_busy BUTTON=1
-  #M112
-  G28 Z
+  M112
   _status_button_ready BUTTON=1
 
 [gcode_macro _BUTTON_B2]
