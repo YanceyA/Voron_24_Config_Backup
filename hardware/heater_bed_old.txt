@@ -13,8 +13,7 @@ max_temp: 120
 control: mpc
 heater_power: 400  
 cooling_fan: fan_generic BedFans
-smoothing: 0.4375
-
+#smoothing: 0.4375
 
 [verify_heater heater_bed]
 max_error: 500

@@ -27,17 +27,11 @@ heater_power: 40
 cooling_fan: fan
 filament_density: 1.2
 filament_heat_capacity: 1.80
-#maximum_retract: 0.99
-#smoothing: 0.4375
 
 ##Hotend Thermistor
-sensor_type:  PT1000  #MAX31865
-sensor_pin: sht36v2:PA3 #CAN #sht36v2:PB12
+sensor_type: PT1000  
+sensor_pin: sht36v2:PA3
 pullup_resistor: 1100
-#spi_bus: spi2
-#rtd_reference_r: 3290
-#rtd_nominal_r: 1000
-#rtd_num_of_wires: 2
 min_temp: -50
 max_temp: 350
 max_power: 1.0
