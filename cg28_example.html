@@ -1,0 +1,21 @@
+[gcode_macro PY_TEST]                                                                           
+variable_output: 118                                                                            
+gcode:                                                                                          
+  !raw_lower = (rawparams or "").lower()                                                          
+  !requested_axes = {axis for axis in "xyz" if axis in raw_lower}                                 
+  !request_all = (not raw_lower) or (not requested_axes)                                          
+  !if request_all:                                                                                
+  !  requested_axes = {"x", "y", "z"}                                                             
+  !homed_axes = set((printer.toolhead.homed_axes or "").lower())                                  
+  !unhomed_axes = {"x", "y", "z"} - homed_axes                                                    
+  !status_code = own_vars.output                                                                  
+  !if not unhomed_axes:                                                                           
+  !  emit(f"M{status_code} All axes are homed")
+  !elif request_all and unhomed_axes == {"x", "y", "z"}:
+  !  emit(f"M{status_code} Homing all axes")
+  !  emit("G28")
+  !else:
+  !  for axis in ("x", "y", "z"):
+  !    if axis in unhomed_axes and axis in requested_axes:
+  !      emit(f"M{status_code} Homing {axis.upper()} axis")
+  !      emit(f"G28 {axis.upper()}")
